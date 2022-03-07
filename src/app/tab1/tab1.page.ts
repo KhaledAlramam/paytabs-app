@@ -12,20 +12,24 @@ export class Tab1Page {
 
 
   processPayment() {
-    const billing = {
-      name: 'John Smith',
-      email: 'bilal@footspot.com',
-      phone: '+201111111111',
-      addressLine: 'Address line',
-      city: 'Dubai',
-      state: 'Dubai',
-      countryCode: 'AE',
-      zip: '1234'
-    };
-
-    const billingDetails = new cordova.plugins.CordovaPaymentPlugin.PaymentSDKBillingDetails(billing);
-
-    const shippingDetails = new cordova.plugins.CordovaPaymentPlugin.PaymentSDKShippingDetails(billing);
+    const billingDetails2 = new cordova.plugins.CordovaPaymentPlugin.PaymentSDKBillingDetails(
+      "John Smith",
+      "email@domain.com",
+     "+9731111111",
+     "Flat 1,Building 123, Road 2345",
+      "Dubai",
+      "Dubai",
+      "AE",
+      "1234");
+      const shippingDetails2 = new cordova.plugins.CordovaPaymentPlugin.PaymentSDKShippingDetails(
+         "John Smith",
+         "email@domain.com",
+        "+9731111111",
+        "Flat 1,Building 123, Road 2345",
+         "Dubai",
+         "Dubai",
+         "AE",
+         "1234");
 
     const configuration = new cordova.plugins.CordovaPaymentPlugin.PaymentSDKConfiguration();
 
@@ -39,7 +43,8 @@ export class Tab1Page {
     configuration.merchantName = 'Footspot App';
     configuration.amount = 20;
     configuration.screenTitle = 'Pay with Card';
-    configuration.billingDetails = billingDetails;
+    configuration.billingDetails = billingDetails2;
+    configuration.shippingDetails = shippingDetails2;
     configuration.forceShippingInfo = false;
 
     configuration.showBillingInfo = true;
